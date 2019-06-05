@@ -1,6 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
-import "./styles/index.css";
-import App from "./client/components/App.jsx";
+import { BrowserRouter as Router } from "react-router-dom";
 
-render(<App />, document.getElementById("root"));
+//Routes
+import AppRoutes from "./routes";
+
+//Assets
+import "./styles/index.css";
+
+render(
+    <Router>
+        <AppRoutes />
+    </Router>,
+    document.getElementById("root")
+);

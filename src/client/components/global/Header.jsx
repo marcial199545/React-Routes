@@ -1,6 +1,5 @@
 import React from "react";
-import "../../styles/App.css";
-
+import { Link } from "react-router-dom";
 function Header(props) {
     const { items } = props;
     return (
@@ -11,13 +10,9 @@ function Header(props) {
                         <div className="navbar-nav">
                             {items &&
                                 items.map((item, index) => (
-                                    <a
-                                        className="nav-item nav-link"
-                                        key={index}
-                                        href={item.url}
-                                    >
+                                    <Link className="nav-item nav-link" key={index} to={item.url}>
                                         {item.title}
-                                    </a>
+                                    </Link>
                                 ))}
                         </div>
                     </div>

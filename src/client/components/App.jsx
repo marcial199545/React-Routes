@@ -1,13 +1,19 @@
 import React, { Component } from "react";
+import Proptypes from "prop-types";
 
 //Components
-import Header from "./Header.jsx";
-import Content from "./Content.jsx";
-import Footer from "./Footer.jsx";
+import Header from "./global/Header.jsx";
+import Content from "./global/Content.jsx";
+import Footer from "./global/Footer.jsx";
 // Data
 import items from "../../data/menu.js";
 
+import "../../styles/App.css";
+
 class App extends Component {
+    static propTypes = {
+        children: Proptypes.object.isRequired
+    };
     constructor(props) {
         super(props);
         this.state = {
@@ -15,11 +21,12 @@ class App extends Component {
         };
     }
     render() {
+        const { children } = this.props;
         return (
             <div>
                 <Header items={items} />
                 <div className="container">
-                    <Content />
+                    <Content body={children} />
                 </div>
                 <Footer copyright="&copy;" year={this.state.year} />
             </div>
